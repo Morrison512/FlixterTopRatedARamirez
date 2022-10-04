@@ -2,7 +2,7 @@
 
 Submitted by: **Alexander Ramirez**
 
-**FlixterTopRatedARamirez** is a movie browsing app that allows users to browse top rated movies and once a item is clicked on shows a different pictur and information about the movie.
+**FlixterTopRatedARamirez** is a movie browsing app that allows users to browse top rated movies and once a item is clicked on shows a different picture and information about the movie.
 
 Time spent: **10** hours spent in total
 
