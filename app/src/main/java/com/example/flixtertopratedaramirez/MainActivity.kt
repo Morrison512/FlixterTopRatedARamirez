@@ -17,7 +17,7 @@ import kotlinx.serialization.json.Json
 import okhttp3.Headers
 import org.json.JSONException
 
-private const val top_rated = "https://api.themoviedb.org/3/movie/top_rated?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed&language=en-US&page=1"
+private const val TOP_RATED = "https://api.themoviedb.org/3/movie/top_rated?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed&language=en-US&page=1"
 private const val TAG = "MainActivity/"
 
 class MainActivity : AppCompatActivity() {
@@ -32,9 +32,8 @@ class MainActivity : AppCompatActivity() {
         tRatedRecyclerView = findViewById(R.id.tRatedRV)
         tRatedRecyclerView.layoutManager = GridLayoutManager(this , 2)
 
-
         val client = AsyncHttpClient()
-        client.get(top_rated, object : JsonHttpResponseHandler() {
+        client.get(TOP_RATED, object : JsonHttpResponseHandler() {
             override fun onFailure(
                 statusCode: Int,
                 headers: Headers?,
@@ -54,7 +53,7 @@ class MainActivity : AppCompatActivity() {
                     tRated = gson.fromJson(resultsJSON, arrayTRatedType)
 
                     tRatedRecyclerView.adapter =
-                        tRatedAdapter(this@MainActivity, tRated)
+                        TRatedAdapter(this@MainActivity, tRated)
 
                 } catch (e: JSONException) {
                     Log.e(TAG, "Exception: $e")

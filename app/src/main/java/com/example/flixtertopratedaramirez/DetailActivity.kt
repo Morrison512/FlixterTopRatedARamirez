@@ -24,11 +24,11 @@ class DetailActivity : AppCompatActivity() {
             detailTextView = findViewById(R.id.descTV)
 
             // TODO: Get the extra from the Intent
-            val rated = intent.getSerializableExtra(FLIX_EXTRA) as TopRated
+            val rated = intent.getSerializableExtra(TRATED_EXTRA) as TopRated
 
             // TODO: Set the title, byline, and abstract information from the article
             titleTextView.text = rated.title
-            knownForTextView.text = rated.rDate
+            knownForTextView.text = "Realeased on: ${rated.rDate}"
             detailTextView.text = rated.description
 
             // TODO: Load the media image

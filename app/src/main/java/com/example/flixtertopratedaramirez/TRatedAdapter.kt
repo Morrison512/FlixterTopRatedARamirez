@@ -10,11 +10,11 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
-const val FLIX_EXTRA = "FLIX_EXTRA"
+const val TRATED_EXTRA = "TRATED_EXTRA"
 private const val TAG = "tRatedAdapter"
 
-class tRatedAdapter (private val context: Context, private val tRated: List<TopRated>) :
-    RecyclerView.Adapter<tRatedAdapter.ViewHolder>() {
+class TRatedAdapter (private val context: Context, private val tRated: List<TopRated>) :
+    RecyclerView.Adapter<TRatedAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.top_rated_item, parent, false)
@@ -42,7 +42,7 @@ class tRatedAdapter (private val context: Context, private val tRated: List<TopR
             titleTextView.text = rated.title
 
             Glide.with(context)
-                .load("https://image.tmdb.org/t/p/w500" + rated.posterPath)
+                .load("https://image.tmdb.org/t/p/w500/" + rated.posterPath)
                 .into(mediaImageView)
         }
 
@@ -50,7 +50,7 @@ class tRatedAdapter (private val context: Context, private val tRated: List<TopR
             val rated = tRated[absoluteAdapterPosition]
 
             val intent = Intent(context, DetailActivity::class.java)
-            intent.putExtra(FLIX_EXTRA, rated)
+            intent.putExtra(TRATED_EXTRA, rated)
             context.startActivity(intent)
         }
     }
